@@ -82,6 +82,7 @@ public class Main {
 
     private void makeFrame() {
         frame = new JFrame();
+        frame.setResizable(false);
         frame.setSize(1000, 300);
         frame.setLocation(500, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
