@@ -23,6 +23,7 @@ public class Main {
     final Font FONT = new Font("Segoe UI", Font.BOLD, 25);
     final Color GREEN = new Color(0, 200, 0);
     final Color BLUE = new Color(0, 0, 200);
+    final Color GOLD = new Color(255, 215, 0);
     final Color RED = new Color(200, 0, 0);
 
     public static void main(String[] args) {
@@ -56,15 +57,16 @@ public class Main {
         }
     }
 
-    private String getData(int i, List list) {
+    private String getData(int i, List<MyObject> list) {
         int n = (int) ((i - 1) * 0.25 * max);
         long start = System.nanoTime();
         if (rb1.isSelected()) {
             list.remove(n);
-            list.add(n, new Random().nextInt());
+            MyObject o = new MyObject(i+"", new Random().nextInt());
+            list.add(n, o);
         }
         if (rb2.isSelected()) {
-            list.get(n);
+            System.out.println(list.get(n));
         }
         long result = System.nanoTime() - start;
         return format(result);
@@ -73,7 +75,7 @@ public class Main {
     private String format(long result) {
         String s = result + "";
         int l = s.length();
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = l - 1; i >= 0; i--) {
             sb.insert(0, s.charAt(i));
             if ((l - i) % 3 == 0) sb.insert(0, " ");
@@ -156,7 +158,7 @@ public class Main {
     }
 
     private Color getColor(int i, int j) {
-        if (j == 0) return BLUE;
+        if (j == 0) return GOLD;
         if (i == 1) {
             if (Integer.parseInt(data[1][j].replace(" ", "")) > Integer.parseInt(data[2][j].replace(" ", "")))
                 return RED;
