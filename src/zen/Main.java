@@ -61,12 +61,13 @@ public class Main {
         int n = (int) ((i - 1) * 0.25 * max);
         long start = System.nanoTime();
         if (rb1.isSelected()) {
-            list.remove(n);
-            MyObject o = new MyObject(i+"", new Random().nextInt());
+            System.out.print("Removed " + list.remove(n) + " from " + list.getClass().getSimpleName());
+            MyObject o = new MyObject("new "+n, new Random().nextInt());
             list.add(n, o);
+            System.out.println(", then added " + o + " to that list");
         }
         if (rb2.isSelected()) {
-            System.out.println(list.get(n));
+            System.out.println("Got " + list.get(n) + " from " + list.getClass().getSimpleName());
         }
         long result = System.nanoTime() - start;
         return format(result);
@@ -137,6 +138,7 @@ public class Main {
             textField.setText("1000");
             max = 1000;
         }
+        System.out.println("max = " + max);
         makeData();
         frame.remove(dataPanel);
         makeDataPanel();
@@ -207,5 +209,13 @@ class MyObject {
 
     public void setI(Integer i) {
         this.i = i;
+    }
+
+    @Override
+    public String toString() {
+        return "MyObject{" +
+                "s='" + s + '\'' +
+                ", i=" + i +
+                '}';
     }
 }
