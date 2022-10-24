@@ -17,8 +17,8 @@ public class Main {
     int cols = 6;
     int gap = 5;
     String[][] data;
-    List<Integer> al;
-    List<Integer> ll;
+    List<MyObject> al;
+    List<MyObject> ll;
     int max = 1000;
     final Font FONT = new Font("Segoe UI", Font.BOLD, 25);
     final Color GREEN = new Color(0, 200, 0);
@@ -38,8 +38,9 @@ public class Main {
         ll = new LinkedList<>();
         Random random = new Random();
         for (int i = 0; i <= max; i++) {
-            al.add(random.nextInt());
-            ll.add(random.nextInt());
+            MyObject o = new MyObject(i+"", random.nextInt());
+            al.add(o);
+            ll.add(o);
         }
     }
 
@@ -87,6 +88,7 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Array List VS Linked List");
         frame.setLayout(new BorderLayout());
+        frame.setResizable(false);
         frame.add(controlPanel, BorderLayout.NORTH);
         frame.add(dataPanel, BorderLayout.CENTER);
         frame.setVisible(true);
@@ -177,5 +179,31 @@ public class Main {
         label.setOpaque(true);
         label.setHorizontalAlignment(SwingConstants.CENTER);
         return label;
+    }
+}
+
+class MyObject {
+    private String s;
+    private Integer i;
+
+    public MyObject(String s, Integer i) {
+        this.s = s;
+        this.i = i;
+    }
+
+    public String getS() {
+        return s;
+    }
+
+    public void setS(String s) {
+        this.s = s;
+    }
+
+    public Integer getI() {
+        return i;
+    }
+
+    public void setI(Integer i) {
+        this.i = i;
     }
 }
