@@ -120,10 +120,10 @@ public class Main {
         textField.setText("1000");
         textField.setCaretPosition(textField.getText().length());
 
-        JButton button = new JButton("Set N");
+        JButton button = new JButton("Compute");
         button.setFocusable(false);
         button.setFont(FONT);
-        button.setPreferredSize(new Dimension(100, 50));
+        button.setPreferredSize(new Dimension(150, 50));
         button.addActionListener(e -> action());
 
         controlPanel.add(rb1);
