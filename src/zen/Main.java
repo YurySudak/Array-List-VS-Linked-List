@@ -118,6 +118,7 @@ public class Main {
         textField.setPreferredSize(new Dimension(300, 50));
         textField.setFont(FONT);
         textField.setText("1000");
+        textField.setCaretPosition(textField.getText().length());
 
         JButton button = new JButton("Set N");
         button.setFocusable(false);
