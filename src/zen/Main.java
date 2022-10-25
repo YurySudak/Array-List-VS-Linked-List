@@ -19,6 +19,7 @@ public class Main {
     String[][] data;
     List<MyObject> al;
     List<MyObject> ll;
+    int prev = 0;
     int max = 1000;
     final Font FONT = new Font("Segoe UI", Font.BOLD, 25);
     final Color GREEN = new Color(0, 200, 0);
@@ -46,7 +47,7 @@ public class Main {
     }
 
     private void makeData() {
-        fillLists();
+        if (prev != max) fillLists();
         data = new String[rows][cols];
         data[0] = new String[]{format(max), "0", "0,25", "0,5", "0,75", "1"};
         data[1][0] = "Array List";
@@ -133,6 +134,7 @@ public class Main {
     }
 
     private void action() {
+        prev = max;
         try {
             max = Integer.parseInt(textField.getText());
         } catch (NumberFormatException e) {
