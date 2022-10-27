@@ -9,5 +9,6 @@ Blue color show position of element in list, where operation is performed. 0 - f
 Green color for winner, and red color for looser.
 
 Pay attention that results are not the same every time. It depends on what tasks your operation system performs at current time.
+And real difference become observable when you set size >= 1 000 000.
 
 ![vs](https://user-images.githubusercontent.com/45999929/197525338-c9fb098f-d8d2-49d1-95a4-d322c9a810ba.png)
